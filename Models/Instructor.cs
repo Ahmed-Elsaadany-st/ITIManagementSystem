@@ -15,7 +15,7 @@ namespace ITIManagementSystem.Models
          public Department WorkingDepartment { get; set; }
         
         public ICollection<InstructorCourse> InstructorsCourses { get; set; }
-        public Department ManagedDepartment { get; set; }
+        public Department? ManagedDepartment { get; set; } // Null cause not all the employees are managers.
 
 
 

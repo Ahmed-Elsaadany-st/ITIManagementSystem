@@ -4,14 +4,15 @@ namespace ITIManagementSystem.Models
 {
     public class ITIContext : DbContext
     {
-        public ITIContext():base()
+        //This the Constructor that deals with DI
+        public ITIContext(DbContextOptions<ITIContext> options) : base(options)
         {
+        }
 
-        }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-        {
-            optionsBuilder.UseSqlServer("Data Source=DESKTOP-8V6V1A0;Initial Catalog=ITIDatabase;Integrated Security=True;Encrypt=False");
-        }
+        //protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
+        //{
+        //    optionsBuilder.UseSqlServer("Data Source=DESKTOP-8V6V1A0;Initial Catalog=ITIDatabase;Integrated Security=True;Encrypt=False");
+        //}
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             #region Full Configuration for the table(StudentCourse) that links between Student and Course

@@ -1,3 +1,6 @@
+using ITIManagementSystem.Models;
+using Microsoft.EntityFrameworkCore;
+
 namespace ITIManagementSystem
 {
     public class Program
@@ -8,6 +11,7 @@ namespace ITIManagementSystem
 
             // Add services to the container.
             builder.Services.AddControllersWithViews();
+            builder.Services.AddDbContext<ITIContext>(options=>options.UseSqlServer(builder.Configuration.GetConnectionString("Connection")));
 
             var app = builder.Build();
 
